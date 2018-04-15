@@ -202,8 +202,76 @@ a {
   text-decoration: none; }
 
 body {
-  background-color: red; }
+  background-color: blue; }
+
+.e-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.e-flex-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.e-rel {
+  position: relative; }
+
+.e-wp {
+  width: 100%; }
+
+.e-wvw {
+  width: 100vw; }
+
+.e-hvh {
+  height: 100vh; }
+
+.e-dn {
+  display: none; }
 
 h1 {
   width: 90px;
   color: #ffffff; }
+
+.box-trg-menu {
+  position: fixed;
+  z-index: 10;
+  right: 13px;
+  top: 23px; }
+  .box-trg-menu .holder-trg-menu {
+    justify-content: space-between;
+    height: 17px;
+    width: 40px; }
+    .box-trg-menu .holder-trg-menu .line-trg-menu {
+      height: 2px;
+      background: #fff; }
+
+.menu-mob {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000; }
+  .menu-mob .holder-menu-mob .box-logo-menu {
+    width: 100vw;
+    margin-top: 5vh; }
+    .menu-mob .holder-menu-mob .box-logo-menu img.logo-menu-mob {
+      width: 40px; }
+  .menu-mob .holder-menu-mob .box-links-mob {
+    width: 80vw;
+    align-items: flex-start; }
+    .menu-mob .holder-menu-mob .box-links-mob a.link-menu-mob {
+      margin-top: 10px;
+      padding: 4px 15px 4px 0px;
+      font-family: 'Roboto', sans-serif;
+      color: #fff; }
+  .menu-mob .holder-menu-mob .dev-box {
+    margin-top: 15vh;
+    justify-content: flex-start; }
+    .menu-mob .holder-menu-mob .dev-box img.desenv-menu {
+      width: 180px;
+      margin-right: 25px; }
+    .menu-mob .holder-menu-mob .dev-box .logo-efet-menu {
+      width: 25px; }

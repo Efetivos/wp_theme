@@ -1,10 +1,115 @@
 @import'normal-reset'; @import 'alias-mixins';
-$color: red;
+$color: blue;
 body {
     background-color: $color;
 }
 
-h1{
+.e-flex {
+    @include flex-center;
+}
+.e-flex-col {
+    @include flex-center-col;
+}
+
+.e-rel {
+    position: relative;
+}
+.e-wp {
+    width: 100%;
+}
+.e-wvw {
+    width: 100vw;
+}
+
+.e-hvh {
+    height: 100vh;
+}
+.e-dn {
+    display: none;
+}
+
+h1 {
     width: 90px;
     color: #ffffff;
+}
+
+
+//<!------------------- MENU MOB -->
+
+//<!-- TRIGGER MENU -->
+.box-trg-menu {
+    position: fixed;
+    z-index: 10;
+    right: 13px;
+    top: 23px;
+
+    .holder-trg-menu {
+        justify-content: space-between;
+        height: 17px;
+        width: 40px;
+
+        .line-trg-menu {
+            height: 2px;
+            background: #fff;            
+        }
+    }
+}
+
+//<!-- MENU MOB -->
+.menu-mob {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+
+    .holder-menu-mob {
+
+        .box-logo-menu {
+            width: 100vw;
+            margin-top: 5vh;
+
+            img.logo-menu-mob {
+                width: 40px;
+            }
+        }
+
+        .box-links-mob {
+            width: 80vw;
+            align-items: flex-start;
+
+            a.link-menu-mob {
+                margin-top: 10px;
+                padding: 4px 15px 4px 0px;
+                @include sans;
+                color: #fff;
+            }
+        }
+
+        .dev-box {
+            margin-top: 15vh;
+                justify-content: flex-start;
+
+            img.desenv-menu {
+                width: 180px;
+                margin-right: 25px;
+            }
+            .logo-efet-menu {
+                width: 25px;
+            }
+        }
+    }
+}
+
+
+header {
+
+}
+
+.box-logo-main {
+
+    img.logo-main {
+
+    }
 }
