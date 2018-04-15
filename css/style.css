@@ -434,11 +434,8 @@ footer {
   text-align: center;
   width: 80vw; }
 
-main.main {
-  background: pink; }
-  main.main .holder-main {
-    background: green;
-    width: 95vw; }
+main.main .holder-main {
+  width: 95vw; }
 
 .box-post {
   margin-bottom: 15vh !important;
