@@ -1,13 +1,13 @@
 // <!-- --------------- MENU MOB --------------- -->
 var menuOpen = false;
 var tlMenuMob = new TimelineMax({ paused: true })
-    .from('.menu-mob', 1.2, { width: 0, ease: Power3.easeInOut, right: 0 })
+    .from('.menu-mob', 1.2, {autoAlpha:0,  width: 0, ease: Power3.easeInOut, right: 0 })
     .staggerFrom('.box-logo-menu, .box-links-mob a', 1.2, { autoAlpha: 0, y: 80, ease: Power2.easeOut }, 0.1, '-=.2')
     .addPause().add('exitMenu')
     .to('.menu-mob', 1.6, { width: 0, ease: Power3.easeInOut, left: 0 })
     .to('.menu-mob a, .box-logo-menu, .desenvolvido', 1, { autoAlpha: 0, x: -50, ease: Power3.easeInOut }, '-=1.4')
     .add(function () { menuOpen = false })
-    .to('.menu-mob', .00001, { width: 0, })
+    .to('.menu-mob', .00001, { autoAlpha: 0, width: 0, })
     .add(function () { $('.line').text('contato'); }, '-=.6');
 
 $('.holder-trg-menu, .menu-mob .box-links-mob a, .menu-mob').click(function () {

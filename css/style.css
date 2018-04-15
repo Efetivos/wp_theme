@@ -202,7 +202,17 @@ a {
   text-decoration: none; }
 
 body {
-  background-color: #ccc; }
+  background-color: #ccc;
+  overflow-x: hidden; }
+
+button {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: 0; }
 
 .e-flex {
   display: flex;
@@ -215,11 +225,22 @@ body {
   align-items: center;
   flex-direction: column; }
 
+.e-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+
 .e-rel {
   position: relative; }
 
+.e-abs {
+  position: absolute; }
+
 .e-wp {
   width: 100%; }
+
+.e-hp {
+  height: 100%; }
 
 .e-wvw {
   width: 100vw; }
@@ -229,6 +250,9 @@ body {
 
 .e-dn {
   display: none; }
+
+.e-img-fit {
+  object-fit: cover; }
 
 h1 {
   width: 90px;
@@ -287,7 +311,8 @@ header .holder-header .box-logo-main {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  margin-top: 5vh; }
+  margin-top: 5vh;
+  z-index: 1; }
   header .holder-header .box-logo-main img.logo-main {
     width: 80px; }
 
@@ -389,3 +414,61 @@ footer {
             margin-top: 0;
             width: 41px;
             margin-left: 25px; } }
+
+.ctn-photo-cover .cover-cover {
+  overflow-x: hidden !important;
+  z-index: -1; }
+  .ctn-photo-cover .cover-cover .box-img-cover {
+    z-index: -1; }
+    .ctn-photo-cover .cover-cover .box-img-cover .fader-cover-cover {
+      background: #000;
+      opacity: 0.6; }
+
+.ctn-photo-cover h1.title-cover {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  width: 80vw; }
+
+.ctn-photo-cover p.descr-cover {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  width: 80vw; }
+
+main.main {
+  background: pink; }
+  main.main .holder-main {
+    background: green;
+    width: 95vw; }
+
+.box-post {
+  margin-bottom: 15vh !important;
+  width: 300px;
+  margin: 2vh 19px;
+  font-family: 'Roboto', sans-serif; }
+  @media only screen and (min-width: 1025px) {
+    .box-post {
+      width: 26vw; } }
+  .box-post .box-photo-post {
+    width: 100%;
+    height: 65vh; }
+    .box-post .box-photo-post .photo-post {
+      background: url(http://unsplash.it/g/1080) center no-repeat;
+      background-size: cover; }
+
+.ctn-text-post {
+  margin-top: 20px; }
+  .ctn-text-post h1.title-post {
+    font-size: 25px; }
+  .ctn-text-post h2.category-post {
+    margin-top: 20px; }
+  .ctn-text-post p.date-post {
+    margin-top: 20px; }
+  .ctn-text-post p.descr-post {
+    margin-top: 20px; }
+  .ctn-text-post button.btn-post {
+    margin-top: 20px;
+    color: red;
+    border: 2px solid #000;
+    font-weight: bold;
+    padding: 15px 105px;
+    cursor: pointer; }
