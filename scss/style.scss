@@ -47,10 +47,6 @@ button {
 .e-img-fit {
     object-fit: cover;
 }
-h1 {
-    width: 90px;
-    color: #ffffff;
-}
 
 
 //<!------------------- MENU MOB -->
@@ -304,6 +300,7 @@ footer {
         @include sans;
         text-align: center;
         width: 80vw;
+        color: #fff;
     }
     p.descr-cover {
         @include sans;
@@ -372,5 +369,52 @@ main.main {
 
         cursor: pointer;
 
+    }
+}
+
+
+
+// <!-- --------------- POSTPAGE --------------- -->
+// <!-- --------------- POSTPAGE --------------- -->
+.post-page-main {
+    .ctn-photo-cover {
+        position: relative;
+        height: 58vh;
+
+        .cover-cover {
+            height:100%;
+
+            .box-img-cover {
+                height: 100%;
+            }
+
+        }
+    }
+
+.holder-main {
+padding: 15vh 0px;
+    @include sans;
+    h1{
+        font-size: 36px;
+    }
+    h2{
+        font-size: 32px;
+    }
+    h3{
+        font-size: 28px;
+    }
+    h4{
+        font-size: 26px;
+    }
+    h5{
+        font-size: 22px;
+    }
+    h6{
+        font-size: 18px;
+    }
+}
+
+    .descr-cover {
+        display: none;
     }
 }
