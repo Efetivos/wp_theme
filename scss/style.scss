@@ -1,5 +1,5 @@
 @import'normal-reset'; @import 'alias-mixins';
-$color: blue;
+$color: #ccc;
 body {
     background-color: $color;
 }
@@ -42,6 +42,9 @@ h1 {
     z-index: 10;
     right: 13px;
     top: 23px;
+    @include desk {
+        display: none;
+    }
 
     .holder-trg-menu {
         justify-content: space-between;
@@ -57,12 +60,16 @@ h1 {
 
 //<!-- MENU MOB -->
 .menu-mob {
+    z-index: 9;
     position: fixed;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
-    background: #000;
+    background: #222;
+    @include desk {
+        display: none;
+    }
 
     .holder-menu-mob {
 
@@ -105,11 +112,147 @@ h1 {
 
 header {
 
+    .holder-header {
+
+        .box-logo-main {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            margin-top: 5vh;
+            
+            img.logo-main {
+                width: 80px;
+            }
+        }
+
+        .box-links-desk {
+            position: absolute;
+            right: 3vw;
+            top: 5vh;
+            @include mobile {
+                display: none;
+            }
+
+            a.link-menu-desk {
+                @include sans;
+                padding: 5px 12px;
+                color: #123;
+                text-decoration: none;
+
+                .traco-menu {
+                    height: 2px;
+                    background: #000;
+                }
+            }
+        }
+    }
 }
 
-.box-logo-main {
 
-    img.logo-main {
 
-    }
+
+
+
+footer {
+	@include flex-center-col;
+	width: 100%;
+	padding: 25vh 0;
+	background: #000;
+	@include desk {
+		padding-bottom: 10vh;		
+	}
+	
+	.box-logo-footer {
+		.logo-footer {
+			width: 116px;
+			@include desk {
+				width: 160px;
+			}
+		}
+	}
+	
+	.ctn-sociais {
+		@include flex-center;
+		margin-top: 10vh;
+		
+		.box-sociais {
+			margin: 0px 15px;
+			position: relative;
+			
+			a {				
+				color: #fff;
+				font-size: 14px;
+			}
+			.traco-sociais {
+				display: none;
+				@include desk {
+					display: block;
+					width: 100%;
+					height: 1px;
+					background: #fff;
+					
+				}
+			}
+		}
+	}
+	
+	.ctn-dev {
+		@include flex-center-col;
+		width: 85vw;
+		margin-top: 15vh;
+		
+		@include desk {
+			flex-direction: row;
+			justify-content: space-between;
+			margin-top: 23vh;
+		}
+		
+		.box-copyright {
+			
+			p {
+				color: #555;
+				span {
+					display: none;
+					@include desk {
+						display: inline-block;
+					}
+				}
+			}
+		}
+		
+		.box-dev {
+			width: 66vw;
+			position: relative;
+			margin-top: 10vh;
+			opacity: .7;
+			@include desk {
+				width: 30vw;
+				margin-top: 0;
+			}
+			
+			a {
+				@include flex-center-col;
+
+					@include desk {
+						flex-direction: row;	
+					}
+
+			}
+			
+			.desenvolv {
+				width: 100%;
+				max-width: 280px;
+			}
+			
+			.logo-efet {
+				margin-top: 25px;
+				width: 45px;
+				@include desk {
+					margin-top: 0;
+					width: 41px;
+  					margin-left: 25px;
+				}
+			}
+		}
+	}
 }

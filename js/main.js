@@ -1,3 +1,4 @@
+// <!-- --------------- MENU MOB --------------- -->
 var menuOpen = false;
 var tlMenuMob = new TimelineMax({ paused: true })
     .from('.menu-mob', 1.2, { width: 0, ease: Power3.easeInOut, right: 0 })
@@ -6,8 +7,8 @@ var tlMenuMob = new TimelineMax({ paused: true })
     .to('.menu-mob', 1.6, { width: 0, ease: Power3.easeInOut, left: 0 })
     .to('.menu-mob a, .box-logo-menu, .desenvolvido', 1, { autoAlpha: 0, x: -50, ease: Power3.easeInOut }, '-=1.4')
     .add(function () { menuOpen = false })
-    .to('.menu-mob', .00001, { width: 0, })    
-    .add(function () { $('.line').text('contato'); },'-=.6');
+    .to('.menu-mob', .00001, { width: 0, })
+    .add(function () { $('.line').text('contato'); }, '-=.6');
 
 $('.holder-trg-menu, .menu-mob .box-links-mob a, .menu-mob').click(function () {
     if (!menuOpen) {
@@ -20,6 +21,19 @@ $('.holder-trg-menu, .menu-mob .box-links-mob a, .menu-mob').click(function () {
 })
 
 $(".ctn-trigger-menu").click(function () {
-
     tlTriggerMenu.reversed(!tlTriggerMenu.reversed());
 });
+
+// // <!-- --------------- MENU DESK --------------- -->
+var tracoMenu = $('.traco-menu');
+
+TweenMax.set('.traco-menu',{scaleX:0})
+
+$('.link-menu-desk').hover(
+    function(){
+        TweenMax.to($(this).find('.traco-menu'), .6,{scaleX: 1, transformOrigin:'left', ease: Power3.easeIn})
+    }, function(){
+            
+        TweenMax.to($(this).find('.traco-menu'), .6,{scaleX: 0, transformOrigin:'right', ease: Power3.easeOut})
+}
+);

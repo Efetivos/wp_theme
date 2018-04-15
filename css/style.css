@@ -202,7 +202,7 @@ a {
   text-decoration: none; }
 
 body {
-  background-color: blue; }
+  background-color: #ccc; }
 
 .e-flex {
   display: flex;
@@ -239,6 +239,9 @@ h1 {
   z-index: 10;
   right: 13px;
   top: 23px; }
+  @media only screen and (min-width: 1025px) {
+    .box-trg-menu {
+      display: none; } }
   .box-trg-menu .holder-trg-menu {
     justify-content: space-between;
     height: 17px;
@@ -248,12 +251,16 @@ h1 {
       background: #fff; }
 
 .menu-mob {
+  z-index: 9;
   position: fixed;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: #000; }
+  background: #222; }
+  @media only screen and (min-width: 1025px) {
+    .menu-mob {
+      display: none; } }
   .menu-mob .holder-menu-mob .box-logo-menu {
     width: 100vw;
     margin-top: 5vh; }
@@ -275,3 +282,110 @@ h1 {
       margin-right: 25px; }
     .menu-mob .holder-menu-mob .dev-box .logo-efet-menu {
       width: 25px; }
+
+header .holder-header .box-logo-main {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 5vh; }
+  header .holder-header .box-logo-main img.logo-main {
+    width: 80px; }
+
+header .holder-header .box-links-desk {
+  position: absolute;
+  right: 3vw;
+  top: 5vh; }
+  @media only screen and (max-width: 960px) {
+    header .holder-header .box-links-desk {
+      display: none; } }
+  header .holder-header .box-links-desk a.link-menu-desk {
+    font-family: 'Roboto', sans-serif;
+    padding: 5px 12px;
+    color: #123;
+    text-decoration: none; }
+    header .holder-header .box-links-desk a.link-menu-desk .traco-menu {
+      height: 2px;
+      background: #000; }
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 25vh 0;
+  background: #000; }
+  @media only screen and (min-width: 1025px) {
+    footer {
+      padding-bottom: 10vh; } }
+  footer .box-logo-footer .logo-footer {
+    width: 116px; }
+    @media only screen and (min-width: 1025px) {
+      footer .box-logo-footer .logo-footer {
+        width: 160px; } }
+  footer .ctn-sociais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh; }
+    footer .ctn-sociais .box-sociais {
+      margin: 0px 15px;
+      position: relative; }
+      footer .ctn-sociais .box-sociais a {
+        color: #fff;
+        font-size: 14px; }
+      footer .ctn-sociais .box-sociais .traco-sociais {
+        display: none; }
+        @media only screen and (min-width: 1025px) {
+          footer .ctn-sociais .box-sociais .traco-sociais {
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #fff; } }
+  footer .ctn-dev {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 85vw;
+    margin-top: 15vh; }
+    @media only screen and (min-width: 1025px) {
+      footer .ctn-dev {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 23vh; } }
+    footer .ctn-dev .box-copyright p {
+      color: #555; }
+      footer .ctn-dev .box-copyright p span {
+        display: none; }
+        @media only screen and (min-width: 1025px) {
+          footer .ctn-dev .box-copyright p span {
+            display: inline-block; } }
+    footer .ctn-dev .box-dev {
+      width: 66vw;
+      position: relative;
+      margin-top: 10vh;
+      opacity: .7; }
+      @media only screen and (min-width: 1025px) {
+        footer .ctn-dev .box-dev {
+          width: 30vw;
+          margin-top: 0; } }
+      footer .ctn-dev .box-dev a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; }
+        @media only screen and (min-width: 1025px) {
+          footer .ctn-dev .box-dev a {
+            flex-direction: row; } }
+      footer .ctn-dev .box-dev .desenvolv {
+        width: 100%;
+        max-width: 280px; }
+      footer .ctn-dev .box-dev .logo-efet {
+        margin-top: 25px;
+        width: 45px; }
+        @media only screen and (min-width: 1025px) {
+          footer .ctn-dev .box-dev .logo-efet {
+            margin-top: 0;
+            width: 41px;
+            margin-left: 25px; } }
