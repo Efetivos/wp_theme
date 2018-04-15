@@ -1,0 +1,10 @@
+@import'normal-reset'; @import 'alias-mixins';
+$color: red;
+body {
+    background-color: $color;
+}
+
+h1{
+    width: 90px;
+    color: #ffffff;
+}
