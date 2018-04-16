@@ -1,0 +1,376 @@
+@import'normal-reset'; @import 'alias-mixins';
+$color: #ccc;
+$mtText: 20px;
+body {
+    background-color: $color;
+    overflow-x: hidden;
+}
+
+button {
+    @include clear;
+}
+.e-flex {
+    @include flex-center;
+}
+.e-flex-col {
+    @include flex-center-col;
+}
+.e-flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.e-rel {
+    position: relative;
+}
+.e-abs {
+    position: absolute;
+}
+.e-wp {
+    width: 100%;
+}
+.e-hp {
+    height: 100%;
+}
+.e-wvw {
+    width: 100vw;
+}
+
+.e-hvh {
+    height: 100vh;
+}
+.e-dn {
+    display: none;
+}
+
+.e-img-fit {
+    object-fit: cover;
+}
+h1 {
+    width: 90px;
+    color: #ffffff;
+}
+
+
+//<!------------------- MENU MOB -->
+
+//<!-- TRIGGER MENU -->
+.box-trg-menu {
+    position: fixed;
+    z-index: 10;
+    right: 13px;
+    top: 23px;
+    @include desk {
+        display: none;
+    }
+
+    .holder-trg-menu {
+        justify-content: space-between;
+        height: 17px;
+        width: 40px;
+
+        .line-trg-menu {
+            height: 2px;
+            background: #fff;            
+        }
+    }
+}
+
+//<!-- MENU MOB -->
+.menu-mob {
+    z-index: 9;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #222;
+    @include desk {
+        display: none;
+    }
+
+    .holder-menu-mob {
+
+        .box-logo-menu {
+            width: 100vw;
+            margin-top: 5vh;
+
+            img.logo-menu-mob {
+                width: 40px;
+            }
+        }
+
+        .box-links-mob {
+            width: 80vw;
+            align-items: flex-start;
+
+            a.link-menu-mob {
+                margin-top: 10px;
+                padding: 4px 15px 4px 0px;
+                @include sans;
+                color: #fff;
+            }
+        }
+
+        .dev-box {
+            margin-top: 15vh;
+                justify-content: flex-start;
+
+            img.desenv-menu {
+                width: 180px;
+                margin-right: 25px;
+            }
+            .logo-efet-menu {
+                width: 25px;
+            }
+        }
+    }
+}
+
+
+// <!-- --------------- HEADER --------------- -->
+// <!-- --------------- HEADER --------------- -->
+header {
+
+    .holder-header {
+
+        .box-logo-main {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            margin-top: 5vh;
+            z-index: 1;
+            
+            img.logo-main {
+                width: 80px;
+            }
+        }
+
+        .box-links-desk {
+            position: absolute;
+            right: 3vw;
+            top: 5vh;
+            @include mobile {
+                display: none;
+            }
+
+            a.link-menu-desk {
+                @include sans;
+                padding: 5px 12px;
+                color: #123;
+                text-decoration: none;
+
+                .traco-menu {
+                    height: 2px;
+                    background: #000;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+// <!-- --------------- FOOTER --------------- -->
+// <!-- --------------- FOOTER --------------- -->
+footer {
+	@include flex-center-col;
+	width: 100%;
+	padding: 25vh 0;
+	background: #000;
+	@include desk {
+		padding-bottom: 10vh;		
+	}
+	
+	.box-logo-footer {
+		.logo-footer {
+			width: 116px;
+			@include desk {
+				width: 160px;
+			}
+		}
+	}
+	
+	.ctn-sociais {
+		@include flex-center;
+		margin-top: 10vh;
+		
+		.box-sociais {
+			margin: 0px 15px;
+			position: relative;
+			
+			a {				
+				color: #fff;
+				font-size: 14px;
+			}
+			.traco-sociais {
+				display: none;
+				@include desk {
+					display: block;
+					width: 100%;
+					height: 1px;
+					background: #fff;
+					
+				}
+			}
+		}
+	}
+	
+	.ctn-dev {
+		@include flex-center-col;
+		width: 85vw;
+		margin-top: 15vh;
+		
+		@include desk {
+			flex-direction: row;
+			justify-content: space-between;
+			margin-top: 23vh;
+		}
+		
+		.box-copyright {
+			
+			p {
+				color: #555;
+				span {
+					display: none;
+					@include desk {
+						display: inline-block;
+					}
+				}
+			}
+		}
+		
+		.box-dev {
+			width: 66vw;
+			position: relative;
+			margin-top: 10vh;
+			opacity: .7;
+			@include desk {
+				width: 30vw;
+				margin-top: 0;
+			}
+			
+			a {
+				@include flex-center-col;
+
+					@include desk {
+						flex-direction: row;	
+					}
+
+			}
+			
+			.desenvolv {
+				width: 100%;
+				max-width: 280px;
+			}
+			
+			.logo-efet {
+				margin-top: 25px;
+				width: 45px;
+				@include desk {
+					margin-top: 0;
+					width: 41px;
+  					margin-left: 25px;
+				}
+			}
+		}
+	}
+}
+
+// <!-- --------------- COVER HEADER --------------- -->
+// <!-- --------------- COVER HEADER --------------- -->
+.ctn-photo-cover {
+
+    .cover-cover {
+        overflow-x: hidden !important;
+        z-index: -1;
+
+        .box-img-cover {
+            z-index: -1;
+
+            img {
+            }
+            .fader-cover-cover {
+                background: #000;
+                opacity: 0.6;
+            }
+        }
+    }
+
+    h1.title-cover {
+        @include sans;
+        text-align: center;
+        width: 80vw;
+    }
+    p.descr-cover {
+        @include sans;
+        text-align: center;
+        width: 80vw;
+    }
+}
+
+
+
+// <!-- --------------- MAIN --------------- -->
+// <!-- --------------- MAIN --------------- -->
+
+main.main {
+
+    .holder-main {
+        width: 95vw;
+    }
+}
+
+.box-post {
+    margin-bottom: 15vh !important;
+    width: 300px;
+    margin: 2vh 19px;
+    @include sans;
+    @include desk {
+        width: 26vw;
+    }
+
+    .box-photo-post {
+        width: 100%;
+        height: 65vh;
+        
+        .photo-post {
+            background: url(http://unsplash.it/g/1080) center no-repeat;
+            background-size: cover;
+        }
+    }
+}
+
+.ctn-text-post {
+    margin-top: $mtText;
+
+    h1.title-post {
+        font-size: 25px;
+    }
+
+    h2.category-post {
+        margin-top: $mtText;        
+    }
+    p.date-post {
+        margin-top: $mtText;        
+        
+    }
+    p.descr-post {
+        margin-top: $mtText;        
+        
+    }
+
+    button.btn-post {
+        margin-top: $mtText;
+        color: red;
+        border: 2px solid #000;
+        font-weight: bold;
+        padding: 15px 105px;
+
+        cursor: pointer;
+
+    }
+}
