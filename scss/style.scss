@@ -418,3 +418,25 @@ padding: 15vh 0px;
         display: none;
     }
 }
+
+
+// <!-- --------------- RESPONSIVE GALERY --------------- -->
+// <!-- --------------- RESPONSIVE GALERY --------------- -->
+.gallery {
+    display: flex;
+    width: 100%;
+    flex-wrap:  wrap;
+    justify-content:  space-between;
+}
+
+#gallery-1 .gallery-item {
+    margin-top: 10px;
+    text-align: center;
+    width: 31%;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+	border: none;
+}
