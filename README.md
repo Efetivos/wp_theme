@@ -192,13 +192,13 @@ if ( $my_query->have_posts() ) {
 			<!-- photo-post -->
 			<a href="<?php the_permalink(); ?>">
 			<div class="box-photo-post e-wp">
-				<img src="<?php echo $photo1[sizes][large]; ?>" alt="" class="photo-main e-wp"> //recebe photo da variavel
+				<img src="<?php echo $photo1[sizes][large]; ?>" alt="" class="photo-main e-wp e-hp e-img-fit"> //recebe photo da variavel
 			</div></a>
 
 
 			<!-- text-post -->
 			<div class="ctn-text-post ">
-				<h1 class="title-post e-wp e-sans"><?php the_title(); ?></h1> //recebe title
+				<a href="<?php the_permalink(); ?>"> <h1 class="title-post e-wp e-sans"><?php the_title(); ?></h1></a> //recebe title
 			</div>
 		</div><!-- close-post -->
 <?php 
@@ -217,7 +217,9 @@ wp_reset_postdata();
 <br>
 <br>
 
-# Page Post > singular.php 
+
+
+# Page Post > single.php 
 ```bash
 <?php
     //Template Name: Page Post
@@ -308,11 +310,11 @@ if ( $my_query->have_posts() ) {
             <!-- photo-post -->
             <a href="<?php the_permalink(); ?>">
             <div class="box-photo-post e-wp"> 
-             <img src="<?php echo $photo1[sizes][large]; ?>" alt="" class="photo-main e-wp">
+             <img src="<?php echo $photo1[sizes][large]; ?>" alt="" class="photo-main e-wp e-hp e-img-fit">
             </div></a>
             <!-- text-post -->
             <div class="ctn-text-post ">
-                <h1 class="title-post e-wp"><?php the_title(); ?></h1>
+                <a href="<?php the_permalink(); ?>"> <h1 class="title-post e-wp e-sans"><?php the_title(); ?></h1></a>
             </div>
         </div><!-- close-post -->      
 
@@ -329,6 +331,80 @@ wp_reset_postdata();
 <?php get_footer(); ?>
 ```
 
+# Search Page Result > search.php 
+```bash
+<?php /* Template name: Custom Search */   
+    get_header(); 
+?>
+
+
+
+    <!-- --------------- MAIN --------------- -->
+    <!-- --------------- MAIN --------------- -->
+    <main class="main e-flex e-wvw">
+        <div class="holder-main e-wp e-rel e-flex-wrap">
+        <?php 
+
+$text = get_search_query();
+$photo1 = get_field('photo1'); ?>
+   <div class="box-title-cat e-flex e-wvw">
+        <h1 class="title-cat e-serif" style="text-transform: uppercase;">PROCURANDO POR:  <?php echo $text; ?></h1>
+    </div>
+<?php
+
+
+		if( have_posts() ):
+			
+			while( have_posts() ): the_post(); ?>                
+                
+                <div class="box-post e-rel">
+
+                    <!-- photo-post -->
+                    <a href="<?php the_permalink(); ?>">
+                        <div class="box-photo-post e-wp"> 
+                        <?php the_post_thumbnail('large', array('class' => 'photo-main e-wp e-hp e-img-fit')); ?>
+                    </div></a>
+
+                    <!-- text-post -->
+                    <div class="ctn-text-post ">
+                        <a href="<?php the_permalink(); ?>"> <h1 class="title-post e-wp e-sans"><?php the_title(); ?></h1></a>
+                    </div>
+                </div><!-- close-post -->
+			
+            <?php endwhile;       
+            else : ?>
+                <h1>NADA ENCOANTRADO</h1>
+        <h4>Searching for: <?php echo $text; ?></h4>
+	<?php endif;    ?>
+
+        </div>
+    </main>
+<?php get_footer(); ?>
+```
+
+
+### Functions > functions.php 
+```bash
+<?php 
+
+// Funções para Limpar o Header
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'start_post_rel_link', 10, 0 );
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+remove_action('wp_head', 'feed_links_extra', 3);
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('admin_print_scripts', 'print_emoji_detection_script');
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('admin_print_styles', 'print_emoji_styles');
+
+// Habilitar Menus
+add_theme_support('menus');
+add_theme_support( 'post-thumbnails' ); 
+
+?>
+```
 
 # Continuação
 11. - Adicionar o Loop
@@ -384,6 +460,8 @@ Adicionar o conteúdo a interface do Custom Fields.
 ```
 17. - Adicionar o Functions.php
 ```bash
+<?php 
+
 // Funções para Limpar o Header
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
@@ -395,6 +473,12 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_styles', 'print_emoji_styles');
+
+// Habilitar Menus
+add_theme_support('menus');
+add_theme_support( 'post-thumbnails' ); 
+
+?>
 ```
 
 ## 18. - Adicionar o Menu
@@ -415,4 +499,49 @@ add_action( 'init', 'register_my_menu' );
 	);
 	wp_nav_menu( $args );
 ?>
+```
+
+
+# Atalhos & Funções para WP
+> - Previous & Next links e Thumbnails para Post
+```bash
+
+// ---------- PREVIOUS
+
+<?php   
+    $prevPost = get_previous_post();
+    $prevThumbnail = get_the_post_thumbnail( $prevPost->ID );
+?>
+<div><?php  previous_post_link( '%link', $prevThumbnail );?></div>
+<div class="navigation"><p><?php previous_post_link(); ?> </div>
+
+// ---------- NEXT
+<?php   
+    $nextPost = get_next_post();
+    $nextThumbnail = get_the_post_thumbnail( $nextPost->ID );
+?>
+<div><?php  next_post_link( '%link', $nextThumbnail );?></div>
+<div class="navigation"><p><?php next_post_link(); ?></div>
+
+// ----------- MESMA CATEGORIA
+<div class="navigation"><p><?php next_post_link('%link', '%title', TRUE ); ?></div>
+<div class="navigation"><p><?php previous_post_link('%link', '%title', TRUE ); ?></div>
+```
+
+> GET CURRENT SLUG CATEGORY POST
+```bash
+   <?php $category = get_the_category(); echo $category[0]->slug; ?>">
+        <?php echo $category[0]->cat_name; ?>
+```
+
+> Thumbnail com Classe Personalizada
+```bash
+<?php the_post_thumbnail('large', array('class' => 'photo-main e-wp e-hp e-img-fit')); ?>
+```
+
+> Formulário de Search
+```bash
+    <form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
+        <input type="search" class="form-control" placeholder="Escreva sua busca" value="<?php echo get_search_query() ?>" name="s" title="Search" />
+    </form>
 ```
